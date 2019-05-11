@@ -13,3 +13,8 @@ class CreateAppDTO (
         var link: String,
         var tags: List<Long>
 )
+
+class SocketAppDTO (
+        var id: Long,
+        var isUpVote: Boolean
+)
