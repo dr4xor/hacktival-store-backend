@@ -15,7 +15,7 @@ class AppService {
     lateinit var tagRepository: TagRepository
 
     fun findAll(): Collection<AppDTO> {
-        return appRepository.findAll().map {it.toDto()}
+        return appRepository.findAllByOrderByScoreDesc().map {it.toDto()}
     }
 
     fun findById(id: Long): AppDTO? {
