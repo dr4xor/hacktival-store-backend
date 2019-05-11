@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="add sequence" author="julian.schnurr@exxeta.com">
+        <createSequence sequenceName="hibernate_sequence" startValue="10" incrementBy="1"/>
+    </changeSet>
+
+    <changeSet id="initial-setup" author="scju1036">
+        <createTable tableName="APP">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LINK" type="varchar(1000)"/>
+            <column name="SCORE" type="BIGINT"/>
+        </createTable>
+        <addPrimaryKey columnNames="ID" constraintName="PK_APP" tableName="APP"/>
+
+        <createTable tableName="TAG">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(1000)"/>
+        </createTable>
+        <addPrimaryKey columnNames="ID" constraintName="PK_TAG" tableName="TAG"/>
+
+        <createTable tableName="APP_TAG">
+            <column name="APP_ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TAG_ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="APP_ID, TAG_ID"
+                constraintName="FK_APP_ID_TAG_ID"
+                tableName="APP_TAG" />
+    </changeSet>
+
+</databaseChangeLog>
