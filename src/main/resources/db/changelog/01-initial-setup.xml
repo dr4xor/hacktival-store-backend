@@ -16,7 +16,10 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liqui
             <column name="ID" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="LINK" type="varchar(1000)"/>
+            <column name="LINK" type="varchar(1000)">
+                <constraints unique="true"
+                             uniqueConstraintName="APP_LINK_uk"/>
+            </column>
             <column name="SCORE" type="BIGINT"/>
         </createTable>
         <addPrimaryKey columnNames="ID" constraintName="PK_APP" tableName="APP"/>
