@@ -1,48 +1,36 @@
 var stompClient = null;
 
-function setConnected(connected) {
-  $("#connect").prop("disabled", connected);
-  $("#disconnect").prop("disabled", !connected);
-
-  if (connected) {
-    $("#conversation").show();
-  } else {
-    $("#conversation").hide();
-  }
-  $("#greetings").html("");
-}
-
 function connect() {
-  var socket = new SockJS("http://localhost:8080/discovery-websocket");
-  stompClient = Stomp.over(socket);
+  var socket = new SockJS("http://localhost:8080/discovery-store");
+  var stompClient = Stomp.over(socket);
   stompClient.connect({}, function(frame) {
-    setConnected(true);
-    console.log("Connected: " + frame);
-    stompClient.subscribe("/topic/votes", function(greeting) {
-      showGreeting(JSON.parse(greeting.body).content);
+    // subscribe to the /topic/message endpoint
+    stompClient.subscribe("/discovery-store", function(data) {
+      console.log(data);
     });
   });
 }
+
 function disconnect() {
-  if (stompClient !== null) {
-    stompClient.disconnect();
+  if (ws != null) {
+    ws.close();
   }
-  setConnected(false);
+  //setConnected(false);
   console.log("Disconnected");
 }
+
 function sendName() {
-  stompClient.send(
-    "/app/vote",
-    {},
-    JSON.stringify({
-      id: $("#appId").val(),
-      isUpVote: $("#isUpVote").is(":checked")
-    })
-  );
+  console.log($("#appId").val());
+  var value = {
+    name: $("#appId").val()
+  };
+  ws.send(value);
 }
+
 function showGreeting(message) {
-  $("#greetings").append("<tr><td>" + message + "</td></tr>");
+  $("#greetings").append(" " + message + "");
 }
+
 $(function() {
   $("form").on("submit", function(e) {
     e.preventDefault();

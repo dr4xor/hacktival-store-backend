@@ -1,8 +1,11 @@
 package com.hacktival.appstore.app
 
+import com.hacktival.appstore.event.VoteEvent
 import com.hacktival.appstore.tag.Tag
 import com.hacktival.appstore.tag.TagRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.ApplicationEventPublisher
+import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
 
 @Service
@@ -13,6 +16,12 @@ class AppService {
 
     @Autowired
     lateinit var tagRepository: TagRepository
+
+    @Autowired
+    lateinit var publisher: ApplicationEventPublisher
+
+    @Autowired
+    lateinit var template: SimpMessagingTemplate
 
     fun findAll(): Collection<AppDTO> {
         return appRepository.findAllByOrderByScoreDesc().map {it.toDto()}
@@ -44,8 +53,13 @@ class AppService {
             } else {
                 app.score = app.score - 1
             }
+            publisher.publishEvent(VoteEvent(app))
             return appRepository.save(app).toDto()
         }
         return null
+    }
+
+    fun sendVoteUpdate(app: App) {
+        template.convertAndSend("/discovery-store", app)
     }
 }

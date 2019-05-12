@@ -12,90 +12,71 @@
     <changeSet id="initial-data" author="scju1036">
         <insert tableName="TAG">
             <column name="ID" value="1"/>
-            <column name="NAME" value="Beauty"/>
+            <column name="NAME" value="Education"/>
         </insert>
         <insert tableName="TAG">
             <column name="ID" value="2"/>
-            <column name="NAME" value="Finance"/>
+            <column name="NAME" value="Health"/>
         </insert>
         <insert tableName="TAG">
             <column name="ID" value="3"/>
+            <column name="NAME" value="Family &amp; Friends"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="4"/>
+            <column name="NAME" value="Work"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="5"/>
+            <column name="NAME" value="Games"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="6"/>
+            <column name="NAME" value="Fun"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="7"/>
+            <column name="NAME" value="Mobility"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="8"/>
+            <column name="NAME" value="Travel"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="9"/>
+            <column name="NAME" value="Music"/>
+        </insert>
+        <insert tableName="TAG">
+            <column name="ID" value="10"/>
             <column name="NAME" value="Action"/>
         </insert>
         <insert tableName="TAG">
-            <column name="ID" value="4"/>
-            <column name="NAME" value="Arcade"/>
+            <column name="ID" value="11"/>
+            <column name="NAME" value="Productivity"/>
         </insert>
         <insert tableName="TAG">
-            <column name="ID" value="5"/>
-            <column name="NAME" value="Learn"/>
+            <column name="ID" value="12"/>
+            <column name="NAME" value="Photography"/>
         </insert>
-        <insert tableName="APP">
-            <column name="ID" value="1"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=com.infokombinat.howtotie"/>
-            <column name="SCORE" value="24"/>
+        <insert tableName="TAG">
+            <column name="ID" value="13"/>
+            <column name="NAME" value="Shopping"/>
         </insert>
-        <insert tableName="APP">
-            <column name="ID" value="2"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=air.com.kigorosa.hausmittel.kosmetik.ad"/>
-            <column name="SCORE" value="456"/>
+        <insert tableName="TAG">
+            <column name="ID" value="14"/>
+            <column name="NAME" value="Programming"/>
         </insert>
-        <insert tableName="APP">
-            <column name="ID" value="3"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=money.expense.budget.wallet.manager.track.finance.tracker"/>
-            <column name="SCORE" value="207"/>
+        <insert tableName="TAG">
+            <column name="ID" value="15"/>
+            <column name="NAME" value="Humanity"/>
         </insert>
-        <insert tableName="APP">
-            <column name="ID" value="4"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=com.droid4you.application.wallet"/>
-            <column name="SCORE" value="68"/>
+        <insert tableName="TAG">
+            <column name="ID" value="16"/>
+            <column name="NAME" value="Technology"/>
         </insert>
-        <insert tableName="APP">
-            <column name="ID" value="5"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=com.gamedevltd.modernstrike"/>
-            <column name="SCORE" value="124"/>
-        </insert>
-        <insert tableName="APP">
-            <column name="ID" value="6"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=com.madfingergames.deadtrigger2"/>
-            <column name="SCORE" value="647"/>
-        </insert>
-        <insert tableName="APP">
-            <column name="ID" value="7"/>
-            <column name="LINK" value="https://play.google.com/store/apps/details?id=com.halfbrick.fruitninja"/>
-            <column name="SCORE" value="954"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="1"/>
-            <column name="TAG_ID" value="1"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="1"/>
-            <column name="TAG_ID" value="5"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="2"/>
-            <column name="TAG_ID" value="1"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="3"/>
-            <column name="TAG_ID" value="2"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="4"/>
-            <column name="TAG_ID" value="2"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="5"/>
-            <column name="TAG_ID" value="3"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="6"/>
-            <column name="TAG_ID" value="3"/>
-        </insert>
-        <insert tableName="APP_TAG">
-            <column name="APP_ID" value="7"/>
-            <column name="TAG_ID" value="4"/>
+        <insert tableName="TAG">
+            <column name="ID" value="17"/>
+            <column name="NAME" value="Activities"/>
         </insert>
     </changeSet>
 

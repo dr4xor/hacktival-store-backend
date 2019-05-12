@@ -31,12 +31,4 @@ class AppController {
     fun vote(@PathVariable id: Long, @RequestParam("isUpVote") isUpVote: Boolean): AppDTO? {
         return appService.vote(id, isUpVote)
     }
-
-    @MessageMapping("/vote")
-    @SendTo("/topic/votes")
-    @Throws(Exception::class)
-    fun socketVote(message: SocketAppDTO): AppDTO? {
-        return appService.vote(message.id, message.isUpVote)
-    }
-
 }
